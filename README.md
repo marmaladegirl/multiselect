@@ -18,6 +18,8 @@ If you submit patches I'll try be a little more on top of maintaining them.
 * width (null) : width of widget.
 * height (null) : height of widget.
 * nodeComparator : the function for comparing nodes.
+* includeRemoveAll (true): include the Remove All feature.
+* includeAddAll (true): include the Add All feature.
 
 ## Example ##
 
