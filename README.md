@@ -42,6 +42,11 @@ $(&quot;#colors&quot;).multiselect({
 
 ## History ##
 
+### 12/11/2011 ###
+Merged the following contributions from Garyzhu:
+
+* Added options to exclude the Remove all and Add all controls.
+
 ### 11/20/2011 ###
 Merged the following contributions from NateEag:
 
