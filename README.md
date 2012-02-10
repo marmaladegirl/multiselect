@@ -20,6 +20,7 @@ If you submit patches I'll try be a little more on top of maintaining them.
 * nodeComparator : the function for comparing nodes.
 * includeRemoveAll (true): include the Remove All feature.
 * includeAddAll (true): include the Add All feature.
+* pressEnterKeyToAddAll (false): enable pressing enter to add any items in the filtered list to the Selected List. Pressing enter acts the same as clicking "Add All" would.
 
 ## Example ##
 
@@ -43,6 +44,11 @@ $(&quot;#colors&quot;).multiselect({
 </pre></code>
 
 ## History ##
+
+### 2/10/2012 ###
+Merged the following contributions from ryoe:
+
+* Support for pressing Enter key to "Add All"
 
 ### 12/11/2011 ###
 Merged the following contributions from Garyzhu:
