@@ -44,6 +44,10 @@ $(&quot;#colors&quot;).multiselect({
 </pre></code>
 
 ## History ##
+### 4/4/2012 ###
+Merged the following contributions from NateEag:
+
+*Tweak word-wrap to handle very long single words
 
 ### 2/10/2012 ###
 Merged the following contributions from ryoe:
