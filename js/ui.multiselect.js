@@ -42,7 +42,7 @@ $.widget("ui.multiselect", {
 		height: null,
 		nodeComparator: function(node1,node2) {
 			var text1 = node1.text(),
-			    text2 = node2.text();
+				text2 = node2.text();
 			return text1 == text2 ? 0 : (text1 < text2 ? -1 : 1);
 		},
 		includeRemoveAll: true,
@@ -226,7 +226,7 @@ $.widget("ui.multiselect", {
 		groups.appendTo(this.selectedList.add(this.availableList));
 		
 		var items = $(options.map(function(i) {
-		  var item = that._getOptionNode(this).appendTo(that._getOptionList(this)).show();
+		var item = that._getOptionNode(this).appendTo(that._getOptionList(this)).show();
 
 			if (this.selected) that.count += 1;
 			that._applyItemState(item, this.selected);
@@ -283,11 +283,11 @@ $.widget("ui.multiselect", {
 
 		if (selected) {
 			var selectedItem = this._cloneWithData(item);
-			item[this.options.hide](this.options.animated, function() { 
+			item[this.options.hide](this.options.animated, function() {
 				if (item.siblings().length === 0) {
 					item.closest("ul[title]").hide();
 				}
-				$(this).remove(); 
+				$(this).remove();
 			});
 			// get group to add it to...
 			var $list = this._getOptionList(selectedItem.data("optionLink")[0]);
@@ -325,11 +325,11 @@ $.widget("ui.multiselect", {
 			var availableItem = this._cloneWithData(item);
 			var $list = this._getOptionList(availableItem.data("optionLink")[0]);
 			succ ? availableItem.insertBefore($(succ)) : availableItem.appendTo($list);
-			item[this.options.hide](this.options.animated, function() { 
+			item[this.options.hide](this.options.animated, function() {
 				if (item.siblings().length === 0) {
 					item.closest("ul[title]").hide();
 				}
-				$(this).remove(); 
+				$(this).remove();
 			});
 			availableItem.hide()[this.options.show](this.options.animated);
 
@@ -411,19 +411,19 @@ $.widget("ui.multiselect", {
 
 		// make draggable
 		if (this.options.sortable && this.options.dragToAdd) {
-  		elements.each(function() {
-  			$(this).parent().draggable({
-  	      connectToSortable: that.selectedList,
-  				helper: function() {
-  					var selectedItem = that._cloneWithData($(this)).width($(this).width() - 50);
-  					selectedItem.width($(this).width());
-  					return selectedItem;
-  				},
-  				appendTo: that.container,
-  				containment: that.container,
-  				revert: 'invalid'
-  	    });
-  		});
+		elements.each(function() {
+			$(this).parent().draggable({
+			connectToSortable: that.selectedList,
+				helper: function() {
+					var selectedItem = that._cloneWithData($(this)).width($(this).width() - 50);
+					selectedItem.width($(this).width());
+					return selectedItem;
+				},
+				appendTo: that.container,
+				containment: that.container,
+				revert: 'invalid'
+		});
+		});
 		}
 	},
 	_registerRemoveEvents: function(elements) {
@@ -439,7 +439,7 @@ $.widget("ui.multiselect", {
 
 			return false;
 		});
- 	},
+	},
 	_registerSearchEvents: function(input) {
 		var that = this;
 
@@ -452,13 +452,13 @@ $.widget("ui.multiselect", {
 		.keypress(function(e) {
 			if (e.keyCode == 13) {
 				if (that.options.pressEnterKeyToAddAll) {
-		            //on Enter, if a filter is present add all, then clear the input
-		            var str = $('input.search').val();
-		            if (str !== undefined && str !== null && str !== "") {
-		                $('a.add-all').click();
-		                $('input.search').val("");
-		            }
-		        }
+					//on Enter, if a filter is present add all, then clear the input
+					var str = $('input.search').val();
+					if (str !== undefined && str !== null && str !== "") {
+						$('a.add-all').click();
+						$('input.search').val("");
+					}
+				}
 				return false;
 			}
 		})
