@@ -156,7 +156,7 @@ $.widget("ui.multiselect", {
 		// batch actions
 		this.container.find(".remove-all").click(function() {
 	//		that._populateLists(that.element.find('option').removeAttr('selected'));
-	//	The mandatory elements remain selected, ** but still removed from list**
+			//	The mandatory elements remain selected
 			var options = that.element.find('option').not('.mandatory')
 			if (that.selectedList.children('li:hidden').length > 1) {
 				that.selectedList.children('li').each(function(i){
@@ -166,7 +166,6 @@ $.widget("ui.multiselect", {
 				options.removeAttr('selected');
 			}
 			that._populateLists(that.element.find('option'));
-		//	that._populateLists(that.element.find('option').not('.mandatory').removeAttr('selected'));
 			that.element.trigger('change');
 			return false;
 		});
