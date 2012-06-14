@@ -40,3 +40,6 @@
 .ui-multiselect input.search:focus {
     opacity: 1;
 }
+.ui-multiselect .mandatory{
+	color: #333;
+}

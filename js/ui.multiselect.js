@@ -155,7 +155,18 @@ $.widget("ui.multiselect", {
 
 		// batch actions
 		this.container.find(".remove-all").click(function() {
-			that._populateLists(that.element.find('option').removeAttr('selected'));
+	//		that._populateLists(that.element.find('option').removeAttr('selected'));
+	//	The mandatory elements remain selected, ** but still removed from list**
+			var options = that.element.find('option').not('.mandatory')
+			if (that.selectedList.children('li:hidden').length > 1) {
+				that.selectedList.children('li').each(function(i){
+					if ($(this).is(":visible")) $(options[i-1]).removeAttr('selected');
+				});	
+			}else{
+				options.removeAttr('selected');
+			}
+			that._populateLists(that.element.find('option'));
+		//	that._populateLists(that.element.find('option').not('.mandatory').removeAttr('selected'));
 			that.element.trigger('change');
 			return false;
 		});
@@ -264,7 +275,12 @@ $.widget("ui.multiselect", {
 	},
 	_getOptionNode: function(option) {
 		option = $(option);
-		var node = $('<li class="ui-state-default ui-element" title="'+option.text()+'"><span class="ui-icon"/>'+option.text()+'<a href="#" class="action"><span class="ui-corner-all ui-icon"/></a></li>').hide();
+		//don't create a remove link for mandatory items
+		if (option.hasClass('mandatory')){
+			var node = $('<li class="ui-state-default ui-element mandatory" title="'+option.text()+'"><span class="ui-icon"/>'+option.text()+'</li>').hide();
+		}else{
+			var node = $('<li class="ui-state-default ui-element" title="'+option.text()+'"><span class="ui-icon"/>'+option.text()+'<a href="#" class="action"><span class="ui-corner-all ui-icon"/></a></li>').hide();
+		};
 		node.data('optionLink', option);
 		return node;
 	},
